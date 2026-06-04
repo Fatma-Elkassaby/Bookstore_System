@@ -123,6 +123,6 @@ Built using **Oracle Forms Builder** with **4 Canvases**, utilizing:
 ## 👩‍💻 Developer
 
 **Fatma Mahmoud** — Computer Science Student, Ain Shams University  
-[LinkedIn](https://linkedin.com/in/your-link) • [GitHub](https://github.com/your-username)
+[LinkedIn](https://linkedin.com/in/fatma-elkassaby) • [GitHub](https://github.com/fatma-elkassaby)
 
 ---

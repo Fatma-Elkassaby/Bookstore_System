@@ -1,0 +1,176 @@
+INSERT INTO Author (Author_Id,Author_name,nationality,Biography)
+VALUES (2,'Robert Cecil Martin','American','Robert Cecil Martin is computer software consultant and writer Martin has been a software professional since 1970 and has worked as a Microsoft software consultant since 1990');
+commit;
+INSERT INTO Author (Author_Id,Author_name,nationality,Biography)
+VALUES (3,'Simon Jenkins',' British','Jenkins was born 10 June 1943, in Birmingham, England. His father, Daniel Thomas Jenkins, was a Welsh professor of divinity at Princeton University and a Minister in the Congregational and then United Reformed Church. He was educated at Mill Hill School where he earned a degree in Philosophy, Politics and Economics.'); 
+commit;
+INSERT INTO Author (Author_Id,Author_name,nationality,Biography)
+VALUES (4,'Carlo Lorenzi','Italian','Carlo Lorenzi, known by the nickname Carlo Collodi, was a writer from Florence who honored children throughout a large area of his life. He was known among the masters of literature for his proficiency in writing dramatic story novels, and this became his fame after writing the novel The Adventures of Pinocchio');
+commit;
+ 
+
+INSERT INTO PUBLISHER (Publisher_ID,Address,Name,Email)
+VALUES(2, 'cairo', 'Ahmed', '1@gmail.com');
+COMMIT;
+INSERT INTO PUBLISHER (Publisher_ID,Address,Name,Email)
+VALUES(3, 'Alex', 'Mohamed', '2@gmail.com');
+COMMIT;
+INSERT INTO PUBLISHER (Publisher_ID,Address,Name,Email)
+VALUES(4, 'Mansora', 'Aly', '3@gmail.com');
+COMMIT;
+INSERT INTO PUBLISHER (Publisher_ID,Address,Name,Email)
+VALUES(5, 'Aswan', 'yehia', '4@gmail.com');
+COMMIT;
+
+
+INSERT INTO PUBLISHER_PHONE_NUMBER (Phone_number,Publisher_ID)
+VALUES ( 01026258445, 2);
+commit;
+
+INSERT INTO PUBLISHER_PHONE_NUMBER (Phone_number,Publisher_ID)
+VALUES ( 0125489628, 2);
+commit;
+
+INSERT INTO PUBLISHER_PHONE_NUMBER (Phone_number,Publisher_ID)
+VALUES ( 01248595658, 3);
+commit;
+
+INSERT INTO PUBLISHER_PHONE_NUMBER (Phone_number,Publisher_ID)
+VALUES ( 01225262428, 3);
+commit;
+
+
+
+INSERT INTO CUSTOMER (Customer_Id, FirstName,LastName,Email ,Username,customer_Password ,City ,Governorate ,Street_address,gender)
+VALUES  (2, 'Aya', 'Mohamed', 'aya.mohamed20@gmail.com', 'aya_m', 'securepass', 'Maadi', 'Cairo', 'Nile Street, 123, Apt 5','F');
+commit;
+
+INSERT INTO CUSTOMER (Customer_Id, FirstName,LastName,Email ,Username,customer_Password ,City ,Governorate ,Street_address,gender)
+VALUES  (3, 'Ahmed', 'Ismail', 'ahmed@gmail.com', 'ahmed123', 'pass789', 'Borg El Arab', 'Alexandria', 'Coastal Road, 456, Apt 10','M');
+commit;
+
+INSERT INTO CUSTOMER (Customer_Id, FirstName,LastName,Email ,Username,customer_Password ,City ,Governorate ,Street_address,gender)
+VALUES  (4, 'Yasmine', 'Ali', 'yasmine.ali40@gmail.com', 'yasmine_ali', 'yasmine789', '6th of October City', 'Giza', 'Pyramid Avenue, 56, Apt 8','F');
+commit;
+
+
+
+INSERT INTO  Customer_PHONE_NUMBER (Customer_Id,phone_number)
+VALUES  (2, '+201234567890');
+ commit;
+  
+INSERT INTO  Customer_PHONE_NUMBER (Customer_Id,phone_number)
+VALUES  (2, '+201198765432');
+commit;
+
+INSERT INTO  Customer_PHONE_NUMBER (Customer_Id,phone_number)
+VALUES  (3, '+201276543210');
+commit;
+
+INSERT INTO  Customer_PHONE_NUMBER (Customer_Id,phone_number)
+VALUES  (3, '+201554433221');
+commit;
+
+INSERT INTO  Customer_PHONE_NUMBER (Customer_Id,phone_number)
+VALUES  (4, '+201234509876');
+commit;
+
+
+
+INSERT INTO Book (Book_id,Title,Genre,Book_Language,Target_Age,Quantity,price,Description,publisher_id,publication_date,A_id )
+VALUES (2,'Pinocchio','children','English',+7,5,100,'in this story,the wooden puppet learns valuable lessons during its journey to fulfill its dream of becoming a real boy.',2,'15-oct-17',2);
+COMMIT;
+INSERT INTO Book (Book_id,Title,Genre,Book_Language,Target_Age,Quantity,price,Description,publisher_id,publication_date,A_id )
+VALUES (3,'Clean Code','Science','French',+16,6,150,'Practical guide for writing clear,efficient,and maintainable practices ',3,'1-Aug-08',3);
+COMMIT;
+INSERT INTO Book (Book_id,Title,Genre,Book_Language,Target_Age,Quantity,price,Description,publisher_id,publication_date,A_id )
+VALUES (4,'A simple of England','History','Arabic',+18,9,300,'A clear, concise journey through history of England ,perfect for absolute begginers',2,'29-oct-81',4);
+COMMIT;
+
+
+
+
+INSERT INTO review (book_id, customer_id, Date_Posted, A_Comment,Rating,Recommended)
+VALUES (2, 2,'01-sep-23','Excellent book, highly recommended!', 5,'yes');
+commit;
+
+INSERT INTO review (book_id, customer_id, Date_Posted, A_Comment,Rating,Recommended)
+VALUES (3, 3,'25-nov-23', 'Enjoyed the storyline but expected more.', 4 , 'no');
+commit;
+
+INSERT INTO review (book_id, customer_id, Date_Posted, A_Comment,Rating,Recommended)
+VALUES(4, 4,'30-nov-23',  'Couldn''t connect with the characters.', 3 , 'yes');
+commit;
+
+
+
+
+
+INSERT INTO Delivery_Man (D_ID , FName , LName ,email , salary )
+VALUES ( 2, 'zoro' , 'roronoa' , 'roronoa1111@gmail.com' ,  20000 );
+commit;
+
+INSERT INTO Delivery_Man (D_ID , FName , LName ,email , salary , Super_ID)
+VALUES ( 3, 'john ' , 'maeda' , 'johnm@gmail.com' ,  5000, 2  );
+commit;
+
+
+INSERT INTO Delivery_Man (D_ID , FName , LName ,email , salary , Super_ID)
+VALUES ( 4, 'ethan' , 'alexander' , 'ethanalex@gmail.com' ,  5000, 3 );
+commit;
+
+INSERT INTO delivery_phonenumber ( phone_number ,deliver_id )
+VALUES ( 01025487562, 2);
+commit;
+
+INSERT INTO delivery_phonenumber ( phone_number ,deliver_id )
+VALUES ( 0125489628, 2);
+commit;
+
+INSERT INTO delivery_phonenumber ( phone_number ,deliver_id )
+VALUES ( 01248595658, 3);
+commit;
+
+INSERT INTO delivery_phonenumber ( phone_number ,deliver_id )
+VALUES ( 01225262428, 3);
+commit;
+
+INSERT INTO delivery_phonenumber ( phone_number ,deliver_id )
+VALUES ( 01045784946, 4);
+commit;
+
+
+
+
+INSERT INTO Orders (order_id,customer_id,delivery_id,order_date,delivery_date,order_status,payment_method)
+VALUES (1001,2,3,'25-NOV-23','29-NOV-23','p','visa');
+commit;
+
+INSERT INTO Orders (order_id,customer_id,delivery_id,order_date,delivery_date,order_status,payment_method)
+VALUES (1002,2,4,'26-NOV-23','30-NOV-23','p','paypal');
+commit;
+
+
+INSERT INTO Orders (order_id,customer_id,delivery_id,order_date,delivery_date,order_status,payment_method)
+VALUES (1003,3,2,'30-NOV-23','3-OCT-23','p','cash');
+commit;
+
+
+
+
+INSERT INTO Order_Details (order_id,book_id,quantity) 
+VALUES (1001,2,5);
+commit;
+
+INSERT INTO Order_Details (order_id,book_id,quantity)
+VALUES (1001,3,3);
+commit;
+
+INSERT INTO Order_Details (order_id,book_id,quantity) 
+VALUES (1002,4,4);
+commit;
+
+INSERT INTO Order_Details (order_id,book_id,quantity) 
+VALUES (1003,2,2);
+commit;
+

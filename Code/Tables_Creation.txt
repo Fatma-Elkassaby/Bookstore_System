@@ -1,0 +1,128 @@
+create TABLE Author (
+  Author_Id number(5) primary key ,
+  Author_Name varchar(40) NOT NULL,
+  nationality varchar(20) NOT NULL, 
+  Biography varchar(4000)
+);
+
+
+
+CREATE TABLE PUBLISHER (
+	Publisher_ID number(2) PRIMARY KEY  ,
+	Address varchar2(1000),
+	Name varchar2(1000) NOT NULL,
+	Email varchar2(1000) UNIQUE not null
+);
+
+
+
+
+CREATE TABLE PUBLISHER_PHONE_NUMBER (
+	Phone_number varchar2(12) ,
+	Publisher_ID number(2) ,
+	FOREIGN KEY (Publisher_ID) REFERENCES PUBLISHER (Publisher_ID),
+  primary key (Phone_number , Publisher_ID )
+);
+
+
+CREATE TABLE CUSTOMER (
+    Customer_Id    NUMBER(3)     PRIMARY KEY,
+    FirstName      VARCHAR2(25)  NOT NULL,
+    LastName       VARCHAR2(25)  NOT NULL,
+    Email          VARCHAR2(100) NOT NULL  UNIQUE,
+    Username       VARCHAR2(50)  NOT NULL  UNIQUE,
+    customer_Password        VARCHAR2(50)  NOT NULL,
+    City           VARCHAR2(50)  NOT NULL,
+    Governorate    VARCHAR2(50)  NOT NULL,
+    Street_address VARCHAR2(100) NOT NULL,
+    Gender         CHAR(1)       NOT NULL
+);
+
+
+
+
+
+CREATE TABLE Customer_PHONE_NUMBER (
+    Customer_Id  NUMBER(3)    NOT NULL,
+    phone_number VARCHAR2(20) NOT NULL,
+    CONSTRAINT Customer_PhoneNumber_PK PRIMARY KEY (Customer_Id, phone_number),
+    CONSTRAINT Customer_PhoneNumber_FK FOREIGN KEY (Customer_Id) REFERENCES CUSTOMER(Customer_Id)
+);
+
+
+create table Book(
+Book_id number (3) primary key ,
+Title varchar2(100) Not NULL,
+Genre varchar2(100) Not NULL,
+Book_Language varchar2(100) Not NULL,
+Target_Age number (3) NOT NULL,
+Quantity number (3) NOT NULL,
+price number (3) NOT NULL,
+Description varchar2(1000) Not NULL, 
+publisher_id number (3) NOT NULL,
+publication_date date NOT NULL,
+A_id number (3) NOT NULL ,
+constraint Book_publisher_id_fk FOREIGN KEY (publisher_id) REFERENCES PUBLISHER (Publisher_ID),
+CONSTRAINT Book_A_id_fk FOREIGN KEY (A_id) REFERENCES Author (AUTHOR_ID));
+
+
+
+
+
+CREATE TABLE Review (	
+	book_id NUMBER(3) ,
+  customer_id NUMBER(3) ,
+  Date_Posted DATE NOT NULL,
+  A_Comment VARCHAR2(500) NOT NULL,
+  Rating NUMBER(3) NOT NULL,
+  Recommended VARCHAR2(3) NOT NULL,
+  primary key (book_id, customer_id ),
+  CONSTRAINT fk_book FOREIGN KEY (book_id) REFERENCES Book (book_id),
+  CONSTRAINT fk_customer FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+  );
+
+
+create table Delivery_Man (
+D_ID number (3) primary key ,
+FName varchar2(10) not null ,
+LName varchar2(10) not null ,
+email varchar2 (200) not null unique ,
+salary number(10) check (salary > 0),
+Super_ID number(3) null ,
+FOREIGN KEY (Super_ID) REFERENCES Delivery_Man  (D_ID));
+
+
+
+
+
+create table delivery_phonenumber
+( phone_number number (20)  ,
+deliver_id number (3) ,
+FOREIGN KEY (deliver_id) REFERENCES  Delivery_Man  (D_ID),
+PRIMARY KEY (phone_number,deliver_id ));
+
+
+CREATE TABLE Orders (
+	order_id NUMBER(4) PRIMARY KEY,
+	customer_id NUMBER(3) NOT NULL,
+	delivery_id NUMBER(3) NOT NULL,
+	order_date DATE NOT NULL,
+	delivery_date DATE NOT NULL,
+	order_status CHAR(1) NOT NULL,
+	payment_method VARCHAR2(10) NOT NULL,
+	CONSTRAINT order_customer_fk FOREIGN KEY (customer_id) REFERENCES CUSTOMER (CUSTOMER_ID),
+	CONSTRAINT order_delivery_fk FOREIGN KEY (delivery_id) REFERENCES DELIVERY_MAN (D_ID)
+);
+
+
+
+
+CREATE TABLE Order_Details (	
+	order_id NUMBER(4),
+	book_id NUMBER(3),
+	quantity NUMBER(2) NOT NULL CHECK (quantity > 0) ,
+	CONSTRAINT pk_orderdetails PRIMARY KEY (order_id, book_id),
+	CONSTRAINT orderdetails_orderid_fk FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+	CONSTRAINT orderdetails_bookid_fk FOREIGN KEY (book_id) REFERENCES Book (book_id)
+
+);
